@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Guide | Your Global Explorer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .hidden-city { display: none; }
+        html { scroll-behavior: smooth; }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans text-gray-900">
+
+    <header class="bg-blue-700 text-white p-6 shadow-xl sticky top-0 z-50">
+        <div class="container mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+            <h1 class="text-3xl font-black uppercase tracking-tighter">Travel Guide</h1>
+            <div class="relative w-full md:w-80">
+                <input type="text" id="searchInput" placeholder="Search destinations..." 
+                class="w-full px-4 py-2 rounded-lg text-gray-800 focus:outline-none focus:ring-4 focus:ring-blue-300 transition-all">
+            </div>
+            <nav class="space-x-6 font-semibold">
+                <a href="#destinations" class="hover:text-blue-200">Destinations</a>
+                <a href="#tips" class="hover:text-blue-200">Tips</a>
+                <a href="#contact" class="hover:text-blue-200">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="bg-blue-600 text-white py-20 text-center relative overflow-hidden">
+        <div class="container mx-auto relative z-10">
+            <h2 class="text-6xl font-extrabold mb-4">Travel Guide</h2>
+            <p class="text-2xl opacity-90 max-w-2xl mx-auto">Providing the world's most reliable information for your next journey.</p>
+        </div>
+        <div class="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
+            <svg viewBox="0 0 100 100" preserveAspectRatio="none" class="w-full h-full fill-white">
+                <path d="M0 100 L100 0 L100 100 Z"></path>
+            </svg>
+        </div>
+    </section>
+
+    <main id="destinations" class="container mx-auto py-16 px-6">
+        <h3 class="text-4xl font-bold mb-12 text-center text-gray-800">Explore Destinations</h3>
+        <div id="cityGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+            
+            <div class="city-card group bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300" data-name="new york">
+                <div class="overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?auto=format&fit=crop&w=800" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+                </div>
+                <div class="p-8">
+                    <span class="bg-red-600 text-white px-3 py-1 rounded-md text-xs font-bold uppercase">North America</span>
+                    <h4 class="text-2xl font-bold mt-4">New York City</h4>
+                    <p class="text-gray-600 mt-2">The ultimate urban adventure in the heart of the USA.</p>
+                    <button onclick="openModal('New York Guide', 'Top 3 Activities: 1. Walk across Brooklyn Bridge. 2. Eat a classic NY pizza slice. 3. Visit the 9/11 Memorial.')" class="mt-6 border-2 border-blue-600 text-blue-600 px-6 py-2 rounded-full font-bold hover:bg-blue-600 hover:text-white transition-colors w-full">View Guide</button>
+                </div>
+            </div>
+
+            <div class="city-card group bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300" data-name="london">
+                <div class="overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=800" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+                </div>
+                <div class="p-8">
+                    <span class="bg-blue-600 text-white px-3 py-1 rounded-md text-xs font-bold uppercase">Europe</span>
+                    <h4 class="text-2xl font-bold mt-4">London, UK</h4>
+                    <button onclick="openModal('London Guide', 'Top 3 Activities: 1. Ride the London Eye. 2. See a show at the West End. 3. Walk through Hyde Park.')" class="mt-6 border-2 border-blue-600 text-blue-600 px-6 py-2 rounded-full font-bold hover:bg-blue-600 hover:text-white transition-colors w-full">View Guide</button>
+                </div>
+            </div>
+
+            <div class="city-card group bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300" data-name="paris">
+                <div class="overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=800" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+                </div>
+                <div class="p-8">
+                    <span class="bg-blue-600 text-white px-3 py-1 rounded-md text-xs font-bold uppercase">Europe</span>
+                    <h4 class="text-2xl font-bold mt-4">Paris, France</h4>
+                    <button onclick="openModal('Paris Guide', 'Top 3 Activities: 1. Picnic by the Eiffel Tower. 2. Explore Montmartre. 3. Visit the Musee d’Orsay.')" class="mt-6 border-2 border-blue-600 text-blue-600 px-6 py-2 rounded-full font-bold hover:bg-blue-600 hover:text-white transition-colors w-full">View Guide</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <section id="tips" class="bg-gray-100 py-20">
+        <div class="container mx-auto px-6">
+            <h3 class="text-4xl font-bold mb-4 text-center">Expert Travel Tips</h3>
+            <p class="text-center text-gray-600 mb-12">Secrets to traveling smarter and safer.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-white p-6 rounded-2xl shadow-sm border-t-4 border-blue-600">
+                    <h5 class="font-bold text-xl mb-3">Safety First</h5>
+                    <p class="text-gray-600 text-sm">Always email a copy of your passport to yourself and leave a copy with a friend.</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-sm border-t-4 border-blue-600">
+                    <h5 class="font-bold text-xl mb-3">Save Money</h5>
+                    <p class="text-gray-600 text-sm">Use credit cards with zero foreign transaction fees to save up to 3% on every purchase.</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-sm border-t-4 border-blue-600">
+                    <h5 class="font-bold text-xl mb-3">Eat Locally</h5>
+                    <p class="text-gray-600 text-sm">Walk two blocks away from tourist monuments to find better, cheaper, and more authentic food.</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-sm border-t-4 border-blue-600">
+                    <h5 class="font-bold text-xl mb-3">Tech Ready</h5>
+                    <p class="text-gray-600 text-sm">Carry a universal power adapter and a portable power bank for long transit days.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-20 container mx-auto px-6 max-w-4xl text-center">
+        <div class="bg-blue-700 text-white rounded-[3rem] p-12 shadow-2xl">
+            <h3 class="text-4xl font-bold mb-4">Contact the Travel Guide Team</h3>
+            <p class="mb-10 text-blue-100">Need help planning? Send us a message and our experts will get back to you.</p>
+            <form class="grid grid-cols-1 md:grid-cols-2 gap-4" onsubmit="alert('Message sent successfully!'); return false;">
+                <input type="text" placeholder="Your Name" class="p-4 rounded-xl text-gray-800" required>
+                <input type="email" placeholder="Your Email" class="p-4 rounded-xl text-gray-800" required>
+                <textarea placeholder="How can we help you?" class="p-4 rounded-xl text-gray-800 md:col-span-2" rows="4" required></textarea>
+                <button type="submit" class="md:col-span-2 bg-white text-blue-700 font-bold py-4 rounded-xl hover:bg-blue-50 transition-colors uppercase tracking-widest">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="bg-gray-900 text-white py-12 text-center">
+        <div class="container mx-auto px-6">
+            <h4 class="text-2xl font-black uppercase mb-4 tracking-tighter">Travel Guide</h4>
+            <p class="text-gray-400 max-w-md mx-auto mb-6">Your companion for exploring the world's most beautiful and exciting destinations.</p>
+            <div class="border-t border-gray-800 pt-8 text-gray-500 text-sm">
+                &copy; 2025 Travel Guide Project. Developed through the Software Development Life Cycle.
+            </div>
+        </div>
+    </footer>
+
+    <div id="guideModal" class="fixed inset-0 bg-black bg-opacity-70 hidden flex items-center justify-center p-4 z-[100]">
+        <div class="bg-white rounded-3xl max-w-md w-full p-10 shadow-2xl relative">
+            <h2 id="modalTitle" class="text-3xl font-bold text-blue-700 mb-4 border-b pb-2"></h2>
+            <p id="modalBody" class="text-gray-700 leading-relaxed text-lg"></p>
+            <button onclick="closeModal()" class="mt-10 w-full bg-blue-700 text-white py-3 rounded-xl font-bold hover:bg-blue-800 transition">Got it!</button>
+        </div>
+    </div>
+
+    <script>
+        // Search filter
+        document.getElementById('searchInput').addEventListener('input', (e) => {
+            const query = e.target.value.toLowerCase();
+            document.querySelectorAll('.city-card').forEach(card => {
+                const cityName = card.getAttribute('data-name');
+                card.style.display = cityName.includes(query) ? 'block' : 'none';
+            });
+        });
+
+        // Modal control
+        function openModal(title, content) {
+            document.getElementById('modalTitle').innerText = title;
+            document.getElementById('modalBody').innerText = content;
+            document.getElementById('guideModal').classList.remove('hidden');
+        }
+        function closeModal() {
+            document.getElementById('guideModal').classList.add('hidden');
+        }
+    </script>
+</body>
+</html>
